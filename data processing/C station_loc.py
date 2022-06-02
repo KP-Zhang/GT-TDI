@@ -21,20 +21,4 @@ print('After dropping', sel_id_df.shape)
 sel_id_df.to_csv(location_path + 'sel_id_df_drop_duplicates_loc.csv', header=True, index=False)
 # sel_id_df.to_csv(location_path + 'sel_id_df.csv', header=True, index=False)
 df_group = sel_id_df.groupby('Type').size()
-# print(df_group)
-exit()
-
-id_lst = []
-type_lst = []
-for id_i in sel_id_arr:
-    temp_df = station_df.loc[station_df['ID'] == id_i]
-    # print(temp_df['Type'].values)
-    id_lst.append(id_i)
-    type_lst.append(temp_df['Type'].values)
-
-for type_i in np.unique(type_lst):
-    count = np.count_nonzero(np.asarray(type_lst) == type_i)
-    print(type_i, count)
-print(len(id_lst))
-print(len(type_lst))
-print(np.unique(type_lst))
+print(df_group)
