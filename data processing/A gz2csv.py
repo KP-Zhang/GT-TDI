@@ -8,12 +8,9 @@ import datetime
 import string
 import os
 
-# Long Beach 718245 771864 717724 771825
-station_ID_list = ['715916', '716312']
-
 split_index = pd.date_range('01/01/2013', '12/31/2013', freq='D').strftime('%m/%d/%Y')
-file_path = 'G:/Data/PeMS/2013/District 7/'
-file_path_save = 'G:/Data/PeMS/2013/District 7/csv_2022/'
+file_path = '/PeMS/2013/District 7/'
+file_path_save = '/PeMS/2013/District 7/csv_2022/'
 
 index_i = 0
 for root, dirs, files in os.walk(file_path):
