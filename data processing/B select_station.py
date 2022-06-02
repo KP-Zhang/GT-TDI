@@ -5,7 +5,7 @@ from bisect import bisect_left, bisect
 import matplotlib.pyplot as plt
 
 
-file_path_save = 'G:/Data/PeMS/2013/District 7/csv_2022/'
+file_path_save = '/PeMS/2013/District 7/csv_2022/'
 file_lst = []
 ids_lst = []
 for root, dirs, files in os.walk(file_path_save):
@@ -23,18 +23,6 @@ for file_i in file_lst:
     print(len(station_df['Station_ID'].unique()))
     ids_lst.append(station_df['Station_ID'].unique())
 
-    # temp_df = station_df.loc[station_df['Station_ID'] == 774441]
-    # plt.plot(temp_df['Flow'])
-    # plt.show()
-    # print(temp_df)
-    # exit()
-
-'''
-Some stations in d07_text_meta_2013_11_07.txt do not have data!
-Check if station x of id_lst_first exists in other id lists (i.e., ids_lst[1:]) using sort() + bisect_left(), 
-then store stations existing in all id lists into sel_id_arr.
-'''
-# sel_id_lst = []
 rem_id_lst = []
 id_lst_first = ids_lst[0]
 print('len(id_lst_first)', len(id_lst_first))
@@ -46,21 +34,6 @@ for id_x in id_lst_first:
             # print(id_x, "does not exist")
             rem_id_lst.append(id_x)
             # break
-        # else:
-        #     # print(id_x, "does not exist")
-        #     rem_id_lst.append(id_x)
-        #     # if id_x in set(sel_id_lst):
-        #     #     set(sel_id_lst).remove(id_x)
-        #     break
-        # if bisect_left(id_lst, id_x) != bisect(id_lst, id_x):
-        #     # print(id_x, "Exists")
-        #     sel_id_lst.append(id_x)
-        # else:
-        #     # print(id_x, "does not exist")
-        #     rem_id_lst.append(id_x)
-        #     # if id_x in set(sel_id_lst):
-        #     #     set(sel_id_lst).remove(id_x)
-        #     break
 
 print('Number of removed IDs', len(rem_id_lst))
 
